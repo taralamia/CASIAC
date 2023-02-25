@@ -165,6 +165,17 @@ public class CaseDao extends Executioner implements ICaseDAO {
         countForRevenue =countForRevenue + 1;
         
     }
+    @Override
+ public  String findTotalCases(Case case_)
+   {
+      String query = "Select COUNT(CaseId) as 'Total Case' From CASES where CaseWorker = '" + case_.getCaseWorker() + "' AND CaseStatus ='Active' Group By CaseWorker";   
+      String successMessage ="Showed";
+       String failedMessage = "Failed";
+       String totalCaseNo = executeFindTotalCaseNumber(query,successMessage,failedMessage);
+       //System.out.println(totalCaseNo);
+         return totalCaseNo;
+   }
+ 
 }
 //From. error ashle comma extra last e
 //ClientIdInner Invalid column ashle same line e inner join operation korte hobe

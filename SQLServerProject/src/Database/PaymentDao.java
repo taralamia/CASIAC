@@ -72,4 +72,16 @@ public class PaymentDao extends Executioner implements IPaymentDAO {
         executeCreateTableForAllPendingPayments(query,successMessage,failedMessage,jtable,countForAllPayments);
         countForAllPendingPayments =countForAllPendingPayments + 1;
     }
+   public   String viewMyTotalEarning(Payment payment,Case case_)
+   {
+       String a = "";
+      
+       String query = "SELECT SUM(Amount) as 'TOTAL EARNING' FROM PAYMENT p JOIN CASES c ON p.caseId = c.CaseId where   c.CaseWorker =  '" + case_.getCaseWorker() + "' ";
+       
+       String successMessage = "Table showed for All Payments.";
+        String failedMessage = "Failed";
+       String retrievedLabel = executeTotalEarning(query,successMessage,failedMessage);
+       return  retrievedLabel;
+   }
+
 }

@@ -13,4 +13,8 @@ import model.Document;
 public interface IDocumentDAO {
     
     void createDocument (Document document);
+    void viewMyDocument(Document document);
+    void findDocumentId(Document document);
+    void modifyMyDocumentType(Document document);
+    void modifyMyDocumentLocation(Document document);
 }

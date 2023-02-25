@@ -441,7 +441,7 @@ public class Executioner {
     }
 
     void executeCreateTableForAllPayments(String query, String successMessage, String failedMessage, JTable jtable, int count) {
-        
+
         DefaultTableModel model1 = (DefaultTableModel) jtable.getModel();
         jtable.setModel(model1);
         ResetTable(jtable, count);
@@ -450,17 +450,16 @@ public class Executioner {
             connection = DriverManager.getConnection(databaseUrl, "sa", "123456");
             statement = connection.createStatement();
             result = statement.executeQuery(query);
-            
-            while(result.next())
-            {
+
+            while (result.next()) {
                 String paymentId = result.getString("PaymentId");
                 String ClientName = result.getString("Client Name");
                 String createdTime = result.getString("CreatedTime");
                 String updatedTime = result.getString("UpdatedTime");
                 String status = result.getString("Status");
-                String amount =result.getString("Amount");
+                String amount = result.getString("Amount");
                 String detail = result.getString("Detail");
-                String tableData[]={paymentId,ClientName,createdTime,updatedTime,status,amount,detail};
+                String tableData[] = {paymentId, ClientName, createdTime, updatedTime, status, amount, detail};
                 model1.addRow(tableData);
             }
             JOptionPane.showMessageDialog(null, "Showed");
@@ -470,56 +469,26 @@ public class Executioner {
         }
 
     }
-    
-    void executeCreateTableForAllPendingPayments(String query, String successMessage, String failedMessage, JTable jtable, int count)
-    
-    {
-       DefaultTableModel model1 = (DefaultTableModel) jtable.getModel();
-        jtable.setModel(model1);
-        ResetTable(jtable, count);
-      
-          try {
-            connection = DriverManager.getConnection(databaseUrl, "sa", "123456");
-            statement = connection.createStatement();
-            result = statement.executeQuery(query);
-            
-            while(result.next())
-            {
-                String paymentId = result.getString("PaymentId");
-                String ClientName = result.getString("Client Name");
-                String createdTime = result.getString("CreatedTime");
-                String updatedTime = result.getString("UpdatedTime");
-                String status = result.getString("Status");
-                String amount =result.getString("Amount");
-                String detail = result.getString("Detail");
-                String tableData[]={paymentId,ClientName,createdTime,updatedTime,status,amount,detail};
-                model1.addRow(tableData);
-            }
-            JOptionPane.showMessageDialog(null, "Showed");
-        } catch (SQLException ex) {
 
-            ex.printStackTrace();
-        }
-          
-    }
-    
-  void   executeCaseTableForRevenue(String query, String successMessage, String failedMessage, JTable jtable, int count)
-    {
-         DefaultTableModel model1 = (DefaultTableModel) jtable.getModel();
+    void executeCreateTableForAllPendingPayments(String query, String successMessage, String failedMessage, JTable jtable, int count) {
+        DefaultTableModel model1 = (DefaultTableModel) jtable.getModel();
         jtable.setModel(model1);
         ResetTable(jtable, count);
-         
+
         try {
             connection = DriverManager.getConnection(databaseUrl, "sa", "123456");
             statement = connection.createStatement();
             result = statement.executeQuery(query);
-            
-            while(result.next())
-            {
-                String  revenue = result.getString("Revenue");
-                String ClientId = result.getString("ClientId");
-                String category = result.getString("Category");
-                String tableData[]={revenue,ClientId,category};
+
+            while (result.next()) {
+                String paymentId = result.getString("PaymentId");
+                String ClientName = result.getString("Client Name");
+                String createdTime = result.getString("CreatedTime");
+                String updatedTime = result.getString("UpdatedTime");
+                String status = result.getString("Status");
+                String amount = result.getString("Amount");
+                String detail = result.getString("Detail");
+                String tableData[] = {paymentId, ClientName, createdTime, updatedTime, status, amount, detail};
                 model1.addRow(tableData);
             }
             JOptionPane.showMessageDialog(null, "Showed");
@@ -527,9 +496,204 @@ public class Executioner {
 
             ex.printStackTrace();
         }
-          
-
-        
 
     }
+
+    void executeCaseTableForRevenue(String query, String successMessage, String failedMessage, JTable jtable, int count) {
+        DefaultTableModel model1 = (DefaultTableModel) jtable.getModel();
+        jtable.setModel(model1);
+        ResetTable(jtable, count);
+
+        try {
+            connection = DriverManager.getConnection(databaseUrl, "sa", "123456");
+            statement = connection.createStatement();
+            result = statement.executeQuery(query);
+
+            while (result.next()) {
+                String revenue = result.getString("Revenue");
+                String ClientId = result.getString("ClientId");
+                String category = result.getString("Category");
+                String tableData[] = {revenue, ClientId, category};
+                model1.addRow(tableData);
+            }
+            JOptionPane.showMessageDialog(null, "Showed");
+        } catch (SQLException ex) {
+
+            ex.printStackTrace();
+        }
+
+    }
+
+    void executeClientTable(String query, String successMessage, String failedMessage, JTable jtable, int count) {
+
+        DefaultTableModel model1 = (DefaultTableModel) jtable.getModel();
+        jtable.setModel(model1);
+        ResetTable(jtable, count);
+
+        try {
+            connection = DriverManager.getConnection(databaseUrl, "sa", "123456");
+            statement = connection.createStatement();
+            result = statement.executeQuery(query);
+
+            while (result.next()) {
+
+                String ClientId = result.getString("ClientId");
+                String name = result.getString("Name");
+                String tableData[] = {ClientId, name};
+
+                model1.addRow(tableData);
+            }
+            JOptionPane.showMessageDialog(null, "Showed");
+        } catch (SQLException ex) {
+
+            ex.printStackTrace();
+        }
+    }
+
+    void executeMyDocument(String query, String successMessage, String failedMessage, JTable jtable, int count) {
+        DefaultTableModel model1 = (DefaultTableModel) jtable.getModel();
+        jtable.setModel(model1);
+        ResetTable(jtable, count);
+
+        try {
+            connection = DriverManager.getConnection(databaseUrl, "sa", "123456");
+            statement = connection.createStatement();
+            result = statement.executeQuery(query);
+
+            while (result.next()) {
+
+                String DocumenttId = result.getString("DocumentId");
+                String DocumentType = result.getString("DocumentType");
+                String name = result.getString("Client Name");
+                String location = result.getString("DocumentLocation");
+                String tableData[] = {DocumenttId, DocumentType, name, location};
+
+                model1.addRow(tableData);
+            }
+            JOptionPane.showMessageDialog(null, "Showed");
+        } catch (SQLException ex) {
+
+            ex.printStackTrace();
+        }
+    }
+
+    void executeFindDocId(String query, String successMessage, String failedMessage, String id) {
+        boolean flag = false;
+        try {
+            connection = DriverManager.getConnection(databaseUrl, "sa", AdminPassword);
+            prepareStatement = connection.prepareStatement(query);
+            result = prepareStatement.executeQuery();
+            while (result.next()) {
+                int retrievedID = result.getInt("DocumentId");
+                String ID = Integer.toString(retrievedID);
+                if (ID.equals(id)) {
+
+                    flag = true;
+                    break;
+                }
+
+            }
+
+        } catch (SQLException ex) {
+
+        }
+        if (flag != true) {
+            JOptionPane.showMessageDialog(null, failedMessage,
+                    "Failure!!", JOptionPane.WARNING_MESSAGE);
+        }
+
+    }
+
+    void executeModifyDocumentType(String query, String successMessage, String failedMessage ) {
+
+         try {
+            connection = DriverManager.getConnection(databaseUrl, "sa", AdminPassword);
+            prepareStatement = connection.prepareStatement(query);
+            // prepareStatement.setString(1, "Archived");
+            prepareStatement.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Updated");
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+    void executeModifyMyDocumentLocation(String query, String successMessage, String failedMessage)
+    {
+        try {
+            connection = DriverManager.getConnection(databaseUrl, "sa", AdminPassword);
+            prepareStatement = connection.prepareStatement(query);
+            // prepareStatement.setString(1, "Archived");
+            prepareStatement.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Updated");
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+    String executeFindTotalCaseNumber(String query, String successMessage, String failedMessage)
+    {
+        String totalCases ="";
+      try {
+            connection = DriverManager.getConnection(databaseUrl, "sa", AdminPassword);
+            statement = connection.createStatement();
+            // prepareStatement.setString(1, "Archived");
+            result =statement.executeQuery(query);
+            while(result.next())
+            {
+                totalCases=result.getString("Total Case");
+            }
+         
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }   
+      return totalCases;
+    }
+    
+   void  executeshowTasks(String query, String successMessage, String failedMessage, JTable jtable, int count)
+    {
+        DefaultTableModel model1 = (DefaultTableModel) jtable.getModel();
+        jtable.setModel(model1);
+        ResetTable(jtable, count);
+
+        try {
+            connection = DriverManager.getConnection(databaseUrl, "sa", "123456");
+            statement = connection.createStatement();
+            result = statement.executeQuery(query);
+
+           while (result.next()) {
+
+                String taskdetails = result.getString("TaskDetails");
+                String deadline = result.getString("Deadline");
+                String priority = result.getString("TaskPriority");
+                String status = result.getString("TaskStatus");
+                String tableData[] = {taskdetails, deadline, priority, status};
+
+                System.out.println("detail "+taskdetails+"priority"+priority);
+                model1.addRow(tableData);
+            }
+            JOptionPane.showMessageDialog(null, "Showed");
+        } catch (SQLException ex) {
+
+            ex.printStackTrace();
+        }
+    }
+   
+   String executeTotalEarning(String query, String successMessage, String failedMessage)
+   {
+       String totalEarning ="";
+      try {
+            connection = DriverManager.getConnection(databaseUrl, "sa", AdminPassword);
+            statement = connection.createStatement();
+            // prepareStatement.setString(1, "Archived");
+            result =statement.executeQuery(query);
+            while(result.next())
+            {
+                totalEarning=result.getString("TOTAL EARNING");
+            }
+         
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }   
+      return totalEarning;
+   }
 }

@@ -13,5 +13,5 @@ import model.Task;
  */
 public interface ITaskDAO {
     void createAdvocate (Task task);
-   
+    void showTasks(Task task);
 }

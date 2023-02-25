@@ -4,6 +4,8 @@
  */
 package model;
 
+import javax.swing.JTable;
+
 /**
  *
  * @author parve
@@ -15,6 +17,11 @@ public class Client {
 	private String Email ;
 	private String PhoneNumber ;
 	private String Location;
+private JTable table;
+    
+                    
+                    
+               
 
     public Client() {
     }
@@ -67,5 +74,11 @@ public class Client {
         this.Location = Location;
     }
         
-    
+    public JTable getTable() {
+        return table;
+    }
+
+    public void setTable(JTable table) {
+        this.table = table;
+    }
 }

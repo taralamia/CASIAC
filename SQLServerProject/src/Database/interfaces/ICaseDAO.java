@@ -25,4 +25,5 @@ public interface ICaseDAO {
    void archiveCaseID(Case case_);
    void createCaseTableForArchiveCases(Case case_);
    void createCaseTableForRevenue(Case case_);
+   String findTotalCases(Case case_);
 }

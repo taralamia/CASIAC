@@ -4,6 +4,8 @@
  */
 package model;
 
+import javax.swing.JTable;
+
 /**
  *
  * @author parve
@@ -12,6 +14,24 @@ public class Document {
     private String DocumentId;
     private String DocumentType;
     private String ClientId;
+    private String AdvocateId;
+    private JTable jTable;
+
+    public JTable getjTable() {
+        return jTable;
+    }
+
+    public void setjTable(JTable jTable) {
+        this.jTable = jTable;
+    }
+
+    public String getAdvocateId() {
+        return AdvocateId;
+    }
+
+    public void setAdvocateId(String AdvocateId) {
+        this.AdvocateId = AdvocateId;
+    }
     private String DocumentLocation;
 
     public Document() {

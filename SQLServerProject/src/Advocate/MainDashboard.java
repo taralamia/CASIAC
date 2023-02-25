@@ -62,6 +62,7 @@ public class MainDashboard extends javax.swing.JFrame {
     Color defaultColor, clickedColor, white;
     color colorObject = new color();
     DefaultTableModel tblModel;
+    Task task_ = new Task();
 
     public MainDashboard() {
         initComponents();
@@ -71,6 +72,7 @@ public class MainDashboard extends javax.swing.JFrame {
         defaultColor = new Color(255, 204, 0);
         clickedColor = new Color(51, 51, 51);
         white = new Color(255, 255, 255);
+
     }
 
     /**
@@ -108,17 +110,58 @@ public class MainDashboard extends javax.swing.JFrame {
         viewPaymentsJLabel = new javax.swing.JLabel();
         tab_container = new javax.swing.JTabbedPane();
         tab_dashboard = new javax.swing.JPanel();
-        jPanel21 = new javax.swing.JPanel();
         storedUserLabel = new javax.swing.JLabel();
+        totalCaseHandlerJLabel = new javax.swing.JLabel();
+        totalcasehandlingNumJLabel = new javax.swing.JLabel();
+        totalEarningJLabel = new javax.swing.JLabel();
+        totalEarningjLabel = new javax.swing.JLabel();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        taskJTable = new javax.swing.JTable();
         tab_Documents = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        documentTypejLabel = new javax.swing.JLabel();
+        nestedDocumentTabbedPane = new javax.swing.JTabbedPane();
+        homeDocJPanel = new javax.swing.JPanel();
+        createDocBtn = new javax.swing.JButton();
+        showClientBtn = new javax.swing.JButton();
+        viewAllDocBtn = new javax.swing.JButton();
+        editDocBtn = new javax.swing.JButton();
+        createDocJPanel = new javax.swing.JPanel();
+        DocTypeJLabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        documentLocJLabel = new javax.swing.JLabel();
+        docLocationJLabel = new javax.swing.JLabel();
         documentTypeTextField = new javax.swing.JTextField();
         documentclientIdTextField = new javax.swing.JTextField();
         documentLocationTextField = new javax.swing.JTextField();
+        backDoJLabel = new javax.swing.JLabel();
         documentSaveBtn = new javax.swing.JButton();
+        showClientJPanel = new javax.swing.JPanel();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        showClientJTable = new javax.swing.JTable();
+        clientInfoJLabel = new javax.swing.JLabel();
+        backClientDocJLabel = new javax.swing.JLabel();
+        viewMyDocJPanel = new javax.swing.JPanel();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        MyDocJTable = new javax.swing.JTable();
+        myDocBackJLabel = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        ModifyMyDocJPanel = new javax.swing.JPanel();
+        editDocJComboBox = new javax.swing.JComboBox<>();
+        EditJLabel = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        modifyDocTypeJPanel = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        editDocTypeTextField = new javax.swing.JTextField();
+        saveDocTypeBtn = new javax.swing.JButton();
+        enterDocIdJLabel = new javax.swing.JLabel();
+        enterDocIdTextField = new javax.swing.JTextField();
+        viewMyDocJLabel = new javax.swing.JLabel();
+        backDocModifyJLabel = new javax.swing.JLabel();
+        modifyDocLocationJPanel = new javax.swing.JPanel();
+        enterDocLocJLabel = new javax.swing.JLabel();
+        enterDocLocationTextField = new javax.swing.JTextField();
+        enterDocIdjLabel = new javax.swing.JLabel();
+        enterDocIDTextField = new javax.swing.JTextField();
+        saveDocLocBtn = new javax.swing.JButton();
+        viewMyDOCJlabel = new javax.swing.JLabel();
         tab_appointment = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         tab_todoList = new javax.swing.JPanel();
@@ -247,6 +290,7 @@ public class MainDashboard extends javax.swing.JFrame {
         createdTimeTextField = new javax.swing.JTextField();
         taskSaveBtn = new javax.swing.JButton();
         deadlineDateChooser = new com.toedter.calendar.JDateChooser();
+        viewMyTasksJLabel = new javax.swing.JLabel();
         tab_settings = new javax.swing.JPanel();
         ScrollPane_user_list = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -289,7 +333,6 @@ public class MainDashboard extends javax.swing.JFrame {
 
         user_name.setBackground(new java.awt.Color(255, 255, 255));
         user_name.setForeground(new java.awt.Color(255, 255, 255));
-        user_name.setText("SUPER ADMIN");
 
         logOut_button.setText("LOG OUT");
         logOut_button.addActionListener(new java.awt.event.ActionListener() {
@@ -305,7 +348,7 @@ public class MainDashboard extends javax.swing.JFrame {
             .addGroup(header_containerLayout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addComponent(software_name, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 656, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 733, Short.MAX_VALUE)
                 .addComponent(user_name)
                 .addGap(18, 18, 18)
                 .addComponent(logOut_button)
@@ -369,12 +412,6 @@ public class MainDashboard extends javax.swing.JFrame {
         label_Documents_menu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 label_Documents_menuMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                label_Documents_menuMousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                label_Documents_menuMouseReleased(evt);
             }
         });
 
@@ -681,61 +718,154 @@ public class MainDashboard extends javax.swing.JFrame {
 
         tab_dashboard.setBackground(new java.awt.Color(102, 255, 255));
 
-        jPanel21.setBackground(new java.awt.Color(102, 102, 102));
-
-        javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
-        jPanel21.setLayout(jPanel21Layout);
-        jPanel21Layout.setHorizontalGroup(
-            jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 205, Short.MAX_VALUE)
-        );
-        jPanel21Layout.setVerticalGroup(
-            jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 55, Short.MAX_VALUE)
-        );
-
         storedUserLabel.setBackground(new java.awt.Color(102, 102, 102));
         storedUserLabel.setFont(new java.awt.Font("Constantia", 1, 14)); // NOI18N
         storedUserLabel.setForeground(new java.awt.Color(255, 255, 255));
+
+        totalCaseHandlerJLabel.setFont(new java.awt.Font("Segoe UI Emoji", 1, 12)); // NOI18N
+        totalCaseHandlerJLabel.setText("Total Case Handling");
+
+        totalcasehandlingNumJLabel.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+
+        totalEarningJLabel.setFont(new java.awt.Font("Segoe UI Emoji", 1, 12)); // NOI18N
+        totalEarningJLabel.setText("Total Earning");
+
+        taskJTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Task Details", "Deadline", "Task Priority", "Task Status"
+            }
+        ));
+        jScrollPane12.setViewportView(taskJTable);
 
         javax.swing.GroupLayout tab_dashboardLayout = new javax.swing.GroupLayout(tab_dashboard);
         tab_dashboard.setLayout(tab_dashboardLayout);
         tab_dashboardLayout.setHorizontalGroup(
             tab_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab_dashboardLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(storedUserLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(tab_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tab_dashboardLayout.createSequentialGroup()
+                        .addGap(94, 94, 94)
+                        .addGroup(tab_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(totalCaseHandlerJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(totalEarningJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(40, 40, 40)
+                        .addGroup(tab_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(totalcasehandlingNumJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(totalEarningjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(49, 49, 49)
+                        .addComponent(storedUserLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(tab_dashboardLayout.createSequentialGroup()
+                        .addGap(145, 145, 145)
+                        .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 568, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(147, Short.MAX_VALUE))
         );
         tab_dashboardLayout.setVerticalGroup(
             tab_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab_dashboardLayout.createSequentialGroup()
-                .addGroup(tab_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(13, 13, 13)
+                .addGroup(tab_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(totalcasehandlingNumJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(totalCaseHandlerJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(tab_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(tab_dashboardLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(storedUserLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(456, 456, 456))
                     .addGroup(tab_dashboardLayout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addComponent(storedUserLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 8, Short.MAX_VALUE)))
-                .addGap(602, 602, 602))
+                        .addGroup(tab_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(totalEarningJLabel)
+                            .addComponent(totalEarningjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47))
         );
 
         tab_container.addTab("tab1", tab_dashboard);
 
         tab_Documents.setBackground(new java.awt.Color(204, 0, 102));
 
-        jLabel6.setText("jLabel6");
+        createDocBtn.setFont(new java.awt.Font("Segoe UI Emoji", 3, 12)); // NOI18N
+        createDocBtn.setText("Create");
+        createDocBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createDocBtnActionPerformed(evt);
+            }
+        });
 
-        documentTypejLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        documentTypejLabel.setText("Document Type");
+        showClientBtn.setFont(new java.awt.Font("Segoe UI Emoji", 3, 12)); // NOI18N
+        showClientBtn.setText("Show Clients");
+        showClientBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showClientBtnActionPerformed(evt);
+            }
+        });
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel1.setText("Client ID");
+        viewAllDocBtn.setFont(new java.awt.Font("Segoe UI Emoji", 3, 12)); // NOI18N
+        viewAllDocBtn.setText("View My Documents");
+        viewAllDocBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewAllDocBtnActionPerformed(evt);
+            }
+        });
 
-        documentLocJLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        documentLocJLabel.setText("Location");
+        editDocBtn.setFont(new java.awt.Font("Segoe UI Emoji", 3, 12)); // NOI18N
+        editDocBtn.setText("Modify");
+        editDocBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editDocBtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout homeDocJPanelLayout = new javax.swing.GroupLayout(homeDocJPanel);
+        homeDocJPanel.setLayout(homeDocJPanelLayout);
+        homeDocJPanelLayout.setHorizontalGroup(
+            homeDocJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(homeDocJPanelLayout.createSequentialGroup()
+                .addGap(167, 167, 167)
+                .addGroup(homeDocJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(createDocBtn)
+                    .addComponent(viewAllDocBtn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
+                .addGroup(homeDocJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(showClientBtn)
+                    .addComponent(editDocBtn))
+                .addGap(192, 192, 192))
+        );
+        homeDocJPanelLayout.setVerticalGroup(
+            homeDocJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(homeDocJPanelLayout.createSequentialGroup()
+                .addGap(94, 94, 94)
+                .addGroup(homeDocJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(createDocBtn)
+                    .addComponent(showClientBtn))
+                .addGap(104, 104, 104)
+                .addGroup(homeDocJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(viewAllDocBtn)
+                    .addComponent(editDocBtn))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        nestedDocumentTabbedPane.addTab("tab1", homeDocJPanel);
+
+        DocTypeJLabel.setFont(new java.awt.Font("Segoe Script", 3, 12)); // NOI18N
+        DocTypeJLabel.setText("Document Type");
+
+        jLabel1.setFont(new java.awt.Font("Segoe Script", 3, 12)); // NOI18N
+        jLabel1.setText("Client Id");
+
+        docLocationJLabel.setFont(new java.awt.Font("Segoe Script", 3, 12)); // NOI18N
+        docLocationJLabel.setText("Document Location");
+
+        backDoJLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        backDoJLabel.setText("Back");
+        backDoJLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backDoJLabelMouseClicked(evt);
+            }
+        });
 
         documentSaveBtn.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         documentSaveBtn.setText("Save");
@@ -745,53 +875,355 @@ public class MainDashboard extends javax.swing.JFrame {
             }
         });
 
+        javax.swing.GroupLayout createDocJPanelLayout = new javax.swing.GroupLayout(createDocJPanel);
+        createDocJPanel.setLayout(createDocJPanelLayout);
+        createDocJPanelLayout.setHorizontalGroup(
+            createDocJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, createDocJPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(backDoJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(163, 163, 163))
+            .addGroup(createDocJPanelLayout.createSequentialGroup()
+                .addGroup(createDocJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(createDocJPanelLayout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addGroup(createDocJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(createDocJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(DocTypeJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(docLocationJLabel))
+                        .addGap(37, 37, 37)
+                        .addGroup(createDocJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(documentclientIdTextField)
+                            .addComponent(documentTypeTextField)
+                            .addComponent(documentLocationTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)))
+                    .addGroup(createDocJPanelLayout.createSequentialGroup()
+                        .addGap(229, 229, 229)
+                        .addComponent(documentSaveBtn)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        createDocJPanelLayout.setVerticalGroup(
+            createDocJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(createDocJPanelLayout.createSequentialGroup()
+                .addGap(87, 87, 87)
+                .addGroup(createDocJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(DocTypeJLabel)
+                    .addComponent(documentTypeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addGroup(createDocJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(documentclientIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addGroup(createDocJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(docLocationJLabel)
+                    .addComponent(documentLocationTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(51, 51, 51)
+                .addComponent(documentSaveBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addComponent(backDoJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50))
+        );
+
+        nestedDocumentTabbedPane.addTab("", createDocJPanel);
+
+        showClientJTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Client ID", "Name"
+            }
+        ));
+        jScrollPane10.setViewportView(showClientJTable);
+
+        clientInfoJLabel.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        clientInfoJLabel.setText("Client Information");
+
+        backClientDocJLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        backClientDocJLabel.setText("Back");
+        backClientDocJLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backClientDocJLabelMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout showClientJPanelLayout = new javax.swing.GroupLayout(showClientJPanel);
+        showClientJPanel.setLayout(showClientJPanelLayout);
+        showClientJPanelLayout.setHorizontalGroup(
+            showClientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(showClientJPanelLayout.createSequentialGroup()
+                .addContainerGap(132, Short.MAX_VALUE)
+                .addGroup(showClientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showClientJPanelLayout.createSequentialGroup()
+                        .addGroup(showClientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(clientInfoJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(129, 129, 129))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showClientJPanelLayout.createSequentialGroup()
+                        .addComponent(backClientDocJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(148, 148, 148))))
+        );
+        showClientJPanelLayout.setVerticalGroup(
+            showClientJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, showClientJPanelLayout.createSequentialGroup()
+                .addContainerGap(32, Short.MAX_VALUE)
+                .addComponent(clientInfoJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(backClientDocJLabel)
+                .addGap(22, 22, 22))
+        );
+
+        nestedDocumentTabbedPane.addTab("", showClientJPanel);
+
+        MyDocJTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Document Id", "Document Type", "Client Name", "Document Location"
+            }
+        ));
+        jScrollPane11.setViewportView(MyDocJTable);
+
+        myDocBackJLabel.setFont(new java.awt.Font("Segoe UI Emoji", 1, 12)); // NOI18N
+        myDocBackJLabel.setText("Back");
+        myDocBackJLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                myDocBackJLabelMouseClicked(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
+        jLabel2.setText("My Documents");
+
+        javax.swing.GroupLayout viewMyDocJPanelLayout = new javax.swing.GroupLayout(viewMyDocJPanel);
+        viewMyDocJPanel.setLayout(viewMyDocJPanelLayout);
+        viewMyDocJPanelLayout.setHorizontalGroup(
+            viewMyDocJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(viewMyDocJPanelLayout.createSequentialGroup()
+                .addContainerGap(44, Short.MAX_VALUE)
+                .addGroup(viewMyDocJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, viewMyDocJPanelLayout.createSequentialGroup()
+                        .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 634, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, viewMyDocJPanelLayout.createSequentialGroup()
+                        .addComponent(myDocBackJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(187, 187, 187))))
+            .addGroup(viewMyDocJPanelLayout.createSequentialGroup()
+                .addGap(238, 238, 238)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        viewMyDocJPanelLayout.setVerticalGroup(
+            viewMyDocJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(viewMyDocJPanelLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(myDocBackJLabel)
+                .addGap(21, 21, 21))
+        );
+
+        nestedDocumentTabbedPane.addTab("tab4", viewMyDocJPanel);
+
+        editDocJComboBox.setFont(new java.awt.Font("Segoe UI Light", 3, 12)); // NOI18N
+        editDocJComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Document Type", "Document Location", " " }));
+        editDocJComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editDocJComboBoxActionPerformed(evt);
+            }
+        });
+
+        EditJLabel.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
+        EditJLabel.setText("Edit");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 10)); // NOI18N
+        jLabel3.setText("Back");
+
+        javax.swing.GroupLayout ModifyMyDocJPanelLayout = new javax.swing.GroupLayout(ModifyMyDocJPanel);
+        ModifyMyDocJPanel.setLayout(ModifyMyDocJPanelLayout);
+        ModifyMyDocJPanelLayout.setHorizontalGroup(
+            ModifyMyDocJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ModifyMyDocJPanelLayout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addGroup(ModifyMyDocJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(editDocJComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(EditJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModifyMyDocJPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(147, 147, 147))
+        );
+        ModifyMyDocJPanelLayout.setVerticalGroup(
+            ModifyMyDocJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ModifyMyDocJPanelLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(EditJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(editDocJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 259, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45))
+        );
+
+        nestedDocumentTabbedPane.addTab("", ModifyMyDocJPanel);
+
+        jLabel4.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
+        jLabel4.setText("Enter Document Type");
+        jLabel4.setToolTipText("");
+
+        saveDocTypeBtn.setFont(new java.awt.Font("Segoe UI Emoji", 1, 12)); // NOI18N
+        saveDocTypeBtn.setText("Save");
+        saveDocTypeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveDocTypeBtnActionPerformed(evt);
+            }
+        });
+
+        enterDocIdJLabel.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
+        enterDocIdJLabel.setText("Enter Document ID");
+
+        viewMyDocJLabel.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        viewMyDocJLabel.setText("view My Documents");
+        viewMyDocJLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                viewMyDocJLabelMouseClicked(evt);
+            }
+        });
+
+        backDocModifyJLabel.setFont(new java.awt.Font("Segoe UI Emoji", 1, 12)); // NOI18N
+        backDocModifyJLabel.setText("Back");
+        backDocModifyJLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backDocModifyJLabelMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout modifyDocTypeJPanelLayout = new javax.swing.GroupLayout(modifyDocTypeJPanel);
+        modifyDocTypeJPanel.setLayout(modifyDocTypeJPanelLayout);
+        modifyDocTypeJPanelLayout.setHorizontalGroup(
+            modifyDocTypeJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(modifyDocTypeJPanelLayout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addGroup(modifyDocTypeJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(modifyDocTypeJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(saveDocTypeBtn)
+                        .addComponent(jLabel4)
+                        .addComponent(editDocTypeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(enterDocIdJLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(enterDocIdTextField, javax.swing.GroupLayout.Alignment.LEADING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 353, Short.MAX_VALUE)
+                .addComponent(viewMyDocJLabel)
+                .addGap(57, 57, 57))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, modifyDocTypeJPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(backDocModifyJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(122, 122, 122))
+        );
+        modifyDocTypeJPanelLayout.setVerticalGroup(
+            modifyDocTypeJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(modifyDocTypeJPanelLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(modifyDocTypeJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(viewMyDocJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(editDocTypeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(enterDocIdJLabel)
+                .addGap(31, 31, 31)
+                .addComponent(enterDocIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addComponent(saveDocTypeBtn)
+                .addGap(18, 18, 18)
+                .addComponent(backDocModifyJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(101, 101, 101))
+        );
+
+        nestedDocumentTabbedPane.addTab("", modifyDocTypeJPanel);
+
+        enterDocLocJLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        enterDocLocJLabel.setText("Enter Document Location");
+
+        enterDocIdjLabel.setText("Enter Document Id");
+        enterDocIdjLabel.setToolTipText("");
+
+        saveDocLocBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        saveDocLocBtn.setText("Save");
+        saveDocLocBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveDocLocBtnActionPerformed(evt);
+            }
+        });
+
+        viewMyDOCJlabel.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        viewMyDOCJlabel.setText("View My Documents");
+        viewMyDOCJlabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                viewMyDOCJlabelMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout modifyDocLocationJPanelLayout = new javax.swing.GroupLayout(modifyDocLocationJPanel);
+        modifyDocLocationJPanel.setLayout(modifyDocLocationJPanelLayout);
+        modifyDocLocationJPanelLayout.setHorizontalGroup(
+            modifyDocLocationJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(modifyDocLocationJPanelLayout.createSequentialGroup()
+                .addGap(62, 62, 62)
+                .addGroup(modifyDocLocationJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(modifyDocLocationJPanelLayout.createSequentialGroup()
+                        .addComponent(saveDocLocBtn)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(modifyDocLocationJPanelLayout.createSequentialGroup()
+                        .addGroup(modifyDocLocationJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(enterDocLocJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+                            .addComponent(enterDocLocationTextField)
+                            .addComponent(enterDocIdjLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(enterDocIDTextField))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 260, Short.MAX_VALUE)
+                        .addComponent(viewMyDOCJlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(101, 101, 101))))
+        );
+        modifyDocLocationJPanelLayout.setVerticalGroup(
+            modifyDocLocationJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(modifyDocLocationJPanelLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(modifyDocLocationJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(viewMyDOCJlabel, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                    .addComponent(enterDocLocJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(enterDocLocationTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(enterDocIdjLabel)
+                .addGap(18, 18, 18)
+                .addComponent(enterDocIDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(73, 73, 73)
+                .addComponent(saveDocLocBtn)
+                .addContainerGap(152, Short.MAX_VALUE))
+        );
+
+        nestedDocumentTabbedPane.addTab("", modifyDocLocationJPanel);
+
         javax.swing.GroupLayout tab_DocumentsLayout = new javax.swing.GroupLayout(tab_Documents);
         tab_Documents.setLayout(tab_DocumentsLayout);
         tab_DocumentsLayout.setHorizontalGroup(
             tab_DocumentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab_DocumentsLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addGap(142, 142, 142))
             .addGroup(tab_DocumentsLayout.createSequentialGroup()
-                .addGap(85, 85, 85)
-                .addGroup(tab_DocumentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(documentTypejLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(tab_DocumentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(documentLocJLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(46, 46, 46)
-                .addGroup(tab_DocumentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tab_DocumentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(documentTypeTextField)
-                        .addComponent(documentclientIdTextField)
-                        .addComponent(documentLocationTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE))
-                    .addComponent(documentSaveBtn))
-                .addContainerGap(493, Short.MAX_VALUE))
+                .addGap(63, 63, 63)
+                .addComponent(nestedDocumentTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 713, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(84, Short.MAX_VALUE))
         );
         tab_DocumentsLayout.setVerticalGroup(
             tab_DocumentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab_DocumentsLayout.createSequentialGroup()
-                .addContainerGap(55, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addGap(32, 32, 32)
-                .addGroup(tab_DocumentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(documentTypejLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(documentTypeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
-                .addGroup(tab_DocumentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(documentclientIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(tab_DocumentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tab_DocumentsLayout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(documentLocJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(tab_DocumentsLayout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(documentLocationTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(77, 77, 77)
-                .addComponent(documentSaveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(310, 310, 310))
+            .addGroup(tab_DocumentsLayout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addComponent(nestedDocumentTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(149, Short.MAX_VALUE))
         );
 
         tab_container.addTab("tab3", tab_Documents);
@@ -966,19 +1398,14 @@ public class MainDashboard extends javax.swing.JFrame {
             .addGroup(nestedCaseMenuBarLayout.createSequentialGroup()
                 .addGap(120, 120, 120)
                 .addGroup(nestedCaseMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(nestedCaseMenuBarLayout.createSequentialGroup()
-                        .addGroup(nestedCaseMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(openNewCaseRadioBtn)
-                            .addComponent(clientRadioBtn)
-                            .addComponent(MyFolderRadioBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(nestedCaseMenuBarLayout.createSequentialGroup()
-                        .addGroup(nestedCaseMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(archivedFolderRadioBtn)
-                            .addGroup(nestedCaseMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(folderLocRadioBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(folderCategoriesRadioBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(92, 610, Short.MAX_VALUE))))
+                    .addComponent(openNewCaseRadioBtn)
+                    .addComponent(clientRadioBtn)
+                    .addComponent(MyFolderRadioBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(archivedFolderRadioBtn)
+                    .addGroup(nestedCaseMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(folderLocRadioBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(folderCategoriesRadioBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         nestedCaseMenuBarLayout.setVerticalGroup(
             nestedCaseMenuBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1095,6 +1522,12 @@ public class MainDashboard extends javax.swing.JFrame {
                     .addComponent(clientTextField)
                     .addComponent(paymentTextField))
                 .addGroup(openNewCaseJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(openNewCaseJpanelLayout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(saveBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(backJlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(17, 17, 17))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, openNewCaseJpanelLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 236, Short.MAX_VALUE)
                         .addGroup(openNewCaseJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1105,13 +1538,7 @@ public class MainDashboard extends javax.swing.JFrame {
                                 .addComponent(addClientBtn)
                                 .addGap(18, 18, 18)
                                 .addComponent(addPaymentBtn)
-                                .addGap(86, 86, 86))))
-                    .addGroup(openNewCaseJpanelLayout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(saveBtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(backJlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(17, 17, 17))))
+                                .addGap(86, 86, 86))))))
         );
         openNewCaseJpanelLayout.setVerticalGroup(
             openNewCaseJpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1737,21 +2164,21 @@ public class MainDashboard extends javax.swing.JFrame {
             .addGroup(tab_caseFolderLayout.createSequentialGroup()
                 .addGroup(tab_caseFolderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(tab_caseFolderLayout.createSequentialGroup()
-                        .addGap(354, 354, 354)
+                        .addGap(488, 488, 488)
                         .addComponent(jLabel15))
                     .addGroup(tab_caseFolderLayout.createSequentialGroup()
-                        .addGap(42, 42, 42)
+                        .addGap(31, 31, 31)
                         .addComponent(nestedTabbedCase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         tab_caseFolderLayout.setVerticalGroup(
             tab_caseFolderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab_caseFolderLayout.createSequentialGroup()
-                .addContainerGap(208, Short.MAX_VALUE)
-                .addComponent(jLabel15)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(47, 47, 47)
                 .addComponent(nestedTabbedCase, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
+                .addGap(54, 54, 54)
+                .addComponent(jLabel15)
+                .addContainerGap(138, Short.MAX_VALUE))
         );
 
         nestedTabbedCase.getAccessibleContext().setAccessibleName("");
@@ -1869,6 +2296,10 @@ public class MainDashboard extends javax.swing.JFrame {
             }
         });
 
+        viewMyTasksJLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        viewMyTasksJLabel.setText("View My Tasks");
+        viewMyTasksJLabel.setToolTipText("");
+
         javax.swing.GroupLayout tab_tasksLayout = new javax.swing.GroupLayout(tab_tasks);
         tab_tasks.setLayout(tab_tasksLayout);
         tab_tasksLayout.setHorizontalGroup(
@@ -1896,11 +2327,17 @@ public class MainDashboard extends javax.swing.JFrame {
                     .addComponent(createdTimeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(taskSaveBtn))
                 .addContainerGap(138, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tab_tasksLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(viewMyTasksJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(147, 147, 147))
         );
         tab_tasksLayout.setVerticalGroup(
             tab_tasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tab_tasksLayout.createSequentialGroup()
-                .addGap(63, 63, 63)
+                .addGap(47, 47, 47)
+                .addComponent(viewMyTasksJLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(tab_tasksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(taskDetailJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(taskDetailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1934,7 +2371,7 @@ public class MainDashboard extends javax.swing.JFrame {
                         .addComponent(createdTimeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(41, 41, 41)
                 .addComponent(taskSaveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(137, Short.MAX_VALUE))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
 
         tab_container.addTab("tab3", tab_tasks);
@@ -2274,7 +2711,11 @@ public class MainDashboard extends javax.swing.JFrame {
     private void label_dashboard_menuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_dashboard_menuMouseClicked
         // TODO add your handling code here:
         tab_container.setSelectedIndex(0);
-        jTable1.setVisible(false);
+
+        task_.setTable(taskJTable);
+        TaskDao taskDao = new TaskDao();
+        taskDao.showTasks(task_);
+
     }//GEN-LAST:event_label_dashboard_menuMouseClicked
 
     private void label_appointment_menuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_appointment_menuMouseClicked
@@ -2314,23 +2755,11 @@ public class MainDashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_logOut_buttonActionPerformed
 
-    private void label_Documents_menuMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_Documents_menuMouseReleased
-        // TODO add your handling code here:
-        label_Documents_menu.setForeground(defaultColor);
-        jTable1.setVisible(false);
-    }//GEN-LAST:event_label_Documents_menuMouseReleased
-
-    private void label_Documents_menuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_Documents_menuMousePressed
-        // TODO add your handling code here:
-        label_Documents_menu.setForeground(white);
-        jTable1.setVisible(false);
-    }//GEN-LAST:event_label_Documents_menuMousePressed
-
     private void label_Documents_menuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label_Documents_menuMouseClicked
         // TODO add your handling code here:
 
         tab_container.setSelectedIndex(1);
-        jTable1.setVisible(false);
+        //  this.listClientJTable.setVisible(false);
 
     }//GEN-LAST:event_label_Documents_menuMouseClicked
 
@@ -2557,14 +2986,22 @@ public class MainDashboard extends javax.swing.JFrame {
         ClientDao clientDaoObject1 = new ClientDao();
         clientDaoObject1.FindClient(clientObject1);
     }
-void CheckExistingCaseID(String userInputCaseID)
-{
-    Case case_ = new Case();
-    case_.setCaseId(userInputCaseID);
-    CaseDao caseDao = new CaseDao();
-    caseDao.checkExistingCaseID(case_);
-   
-}
+
+    void CheckExistingCaseID(String userInputCaseID) {
+        Case case_ = new Case();
+        case_.setCaseId(userInputCaseID);
+        CaseDao caseDao = new CaseDao();
+        caseDao.checkExistingCaseID(case_);
+
+    }
+
+    void CheckExistingDocumentID(String userInputDocID) {
+        Document doc = new Document();
+        doc.setDocumentId(userInputDocID);
+        DocumentDao documentDao = new DocumentDao();
+        documentDao.findDocumentId(doc);
+    }
+
     boolean StatusClientIDOfCase(int len) {
         if (len == 0) {
             statusClientID = true;
@@ -2618,7 +3055,7 @@ void CheckExistingCaseID(String userInputCaseID)
         if (!status1) {
             CheckExistingClientID(clientID);
         } else if (!status2) {
-
+            CheckExistingPaymentID(paymentID);
         }
         boolean checkNull = nullCheck(stList);
         int flag = 0;
@@ -2854,29 +3291,6 @@ void CheckExistingCaseID(String userInputCaseID)
 
     }//GEN-LAST:event_taskSaveBtnActionPerformed
 
-    private void documentSaveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_documentSaveBtnActionPerformed
-        // TODO add your handling code here:
-        String documentType = documentTypeTextField.getText();
-        String documentClientID = documentclientIdTextField.getText();
-        String documentLocation = documentLocationTextField.getText();
-        ArrayList< String> documentList = new ArrayList<>();
-        documentList.add(documentType);
-        documentList.add(documentClientID);
-        documentList.add(documentLocation);
-
-        Document doc = new Document();
-        doc.setDocumentType(documentType);
-        doc.setClientId(documentClientID);
-        doc.setDocumentLocation(documentLocation);
-
-        boolean documentNullCheck = nullCheck(documentList);
-        if (!documentNullCheck) {
-            CheckExistingClientID(documentClientID);
-            DocumentDao object1 = new DocumentDao();
-            object1.createDocument(doc);
-        }
-    }//GEN-LAST:event_documentSaveBtnActionPerformed
-
     private void NoteSaveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NoteSaveBtnActionPerformed
         // TODO add your handling code here:
         String NoteClientID = clientIdNoteTextField.getText();
@@ -3048,15 +3462,13 @@ void CheckExistingCaseID(String userInputCaseID)
         int response = JOptionPane.showConfirmDialog(this, "Are you sure want to archive", "Confirm", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (response == JOptionPane.YES_OPTION) {
             Case case_ = new Case();
-           String savedArchiveID = archiveCaseIdTextField.getText();
-           
-           CheckExistingCaseID(savedArchiveID);
-           case_.setCaseId(savedArchiveID);
+            String savedArchiveID = archiveCaseIdTextField.getText();
+
+            CheckExistingCaseID(savedArchiveID);
+            case_.setCaseId(savedArchiveID);
             CaseDao caseDao = new CaseDao();
             caseDao.archiveCaseID(case_);
-        }
-        else
-        {
+        } else {
             this.nestedTabbedCase.setSelectedIndex(6);
         }
     }//GEN-LAST:event_archiveCaseBtnActionPerformed
@@ -3065,16 +3477,15 @@ void CheckExistingCaseID(String userInputCaseID)
         // TODO add your handling code here:
         this.nestedTabbedCase.setSelectedIndex(5);
     }//GEN-LAST:event_archiveCaseBackjLabelMouseClicked
-public void DisplayArchivedCases(int id)
-{
-       Case case_ = new Case();
+    public void DisplayArchivedCases(int id) {
+        Case case_ = new Case();
         case_.setjTable(archiveCasesJTable);
         String restoredCase_Id = String.valueOf(id);
         case_.setCaseWorker(restoredCase_Id);
         CaseDao caseDao = new CaseDao();
         caseDao.createCaseTableForArchiveCases(case_);
-     
-}
+
+    }
     private void archivedFolderRadioBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_archivedFolderRadioBtnActionPerformed
         // TODO add your handling code here:
         if (archivedFolderRadioBtn.isSelected()) {
@@ -3097,30 +3508,28 @@ public void DisplayArchivedCases(int id)
         // TODO add your handling code here:
         this.tab_container.setSelectedIndex(8);
     }//GEN-LAST:event_viewPaymentsJLabelMouseClicked
-public void viewMyPayments(int user)
-{
-    Payment payment = new Payment();
-    payment.setJtable(viewAllPaymentsJTable);
-   String intToString = String.valueOf(user);
-   Case case_ = new Case();
-   case_.setCaseWorker(intToString);
-   PaymentDao paymentDao = new PaymentDao();
-   paymentDao.viewAllMyPayments(payment, case_);
-}
-public void  viewMyPendingPayments(int user)
-{
-     Payment payment = new Payment();
-    payment.setJtable(viewPendingPaymentJTable);
-   String intToString = String.valueOf(user);
-   Case case_ = new Case();
-   case_.setCaseWorker(intToString);
-   PaymentDao paymentDao = new PaymentDao();
-    paymentDao.viewAllMyPendingPayments(payment, case_);
-}
+    public void viewMyPayments(int user) {
+        Payment payment = new Payment();
+        payment.setJtable(viewAllPaymentsJTable);
+        String intToString = String.valueOf(user);
+        Case case_ = new Case();
+        case_.setCaseWorker(intToString);
+        PaymentDao paymentDao = new PaymentDao();
+        paymentDao.viewAllMyPayments(payment, case_);
+    }
+
+    public void viewMyPendingPayments(int user) {
+        Payment payment = new Payment();
+        payment.setJtable(viewPendingPaymentJTable);
+        String intToString = String.valueOf(user);
+        Case case_ = new Case();
+        case_.setCaseWorker(intToString);
+        PaymentDao paymentDao = new PaymentDao();
+        paymentDao.viewAllMyPendingPayments(payment, case_);
+    }
     private void viewAllthePaymentsRadioBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewAllthePaymentsRadioBtnMouseClicked
         // TODO add your handling code here:
-        if(viewAllthePaymentsRadioBtn.isSelected())
-        {
+        if (viewAllthePaymentsRadioBtn.isSelected()) {
             pendingPaymentsRadioBtn.setSelected(false);
             myMaxRevenueRadioBtn.setSelected(false);
             this.view_Payment_nestedTabbedPane.setSelectedIndex(1);
@@ -3130,12 +3539,11 @@ public void  viewMyPendingPayments(int user)
 
     private void pendingPaymentsRadioBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pendingPaymentsRadioBtnActionPerformed
         // TODO add your handling code here:
-        if(pendingPaymentsRadioBtn.isSelected())
-        {
-          viewAllthePaymentsRadioBtn.setSelected(false);
-          myMaxRevenueRadioBtn.setSelected(false);
-          this.view_Payment_nestedTabbedPane.setSelectedIndex(2);
-          viewMyPendingPayments(loggedInUser);
+        if (pendingPaymentsRadioBtn.isSelected()) {
+            viewAllthePaymentsRadioBtn.setSelected(false);
+            myMaxRevenueRadioBtn.setSelected(false);
+            this.view_Payment_nestedTabbedPane.setSelectedIndex(2);
+            viewMyPendingPayments(loggedInUser);
         }
     }//GEN-LAST:event_pendingPaymentsRadioBtnActionPerformed
 
@@ -3148,20 +3556,18 @@ public void  viewMyPendingPayments(int user)
         // TODO add your handling code here:
         this.view_Payment_nestedTabbedPane.setSelectedIndex(0);
     }//GEN-LAST:event_viewPendingPaymentBackJLabelMouseClicked
-public void viewMyRevenue(int user)
-{
-    Case case_ = new Case();
-    case_.setjTable(myMaxRevenueJTable);
-    String userId = String.valueOf(user);
-    case_.setCaseWorker(userId);
-    CaseDao caseDao = new CaseDao();
-    caseDao.createCaseTableForRevenue(case_);
-    
-}
+    public void viewMyRevenue(int user) {
+        Case case_ = new Case();
+        case_.setjTable(myMaxRevenueJTable);
+        String userId = String.valueOf(user);
+        case_.setCaseWorker(userId);
+        CaseDao caseDao = new CaseDao();
+        caseDao.createCaseTableForRevenue(case_);
+
+    }
     private void myMaxRevenueRadioBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myMaxRevenueRadioBtnActionPerformed
         // TODO add your handling code here:
-        if(myMaxRevenueRadioBtn.isSelected())
-        {
+        if (myMaxRevenueRadioBtn.isSelected()) {
             viewAllthePaymentsRadioBtn.setSelected(false);
             myMaxRevenueRadioBtn.setSelected(false);
 
@@ -3175,6 +3581,162 @@ public void viewMyRevenue(int user)
         this.view_Payment_nestedTabbedPane.setSelectedIndex(0);
     }//GEN-LAST:event_maxRevenueBackJLabelMouseClicked
 
+    private void documentSaveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_documentSaveBtnActionPerformed
+        // TODO add your handling code here:
+        Document doc = new Document();
+        String docType = documentTypeTextField.getText();
+        String DocClientId = documentclientIdTextField.getText();
+        String docLocation = documentLocationTextField.getText();
+
+        doc.setDocumentType(docType);
+        doc.setClientId(DocClientId);
+        doc.setDocumentLocation(docLocation);
+
+        DocumentDao documentDao = new DocumentDao();
+
+        ArrayList< String> DocList = new ArrayList<>();
+        DocList.add(docType);
+        DocList.add(DocClientId);
+        DocList.add(docLocation);
+        boolean docNullCheck = nullCheck(DocList);
+        if (!docNullCheck) {
+            CheckExistingClientID(DocClientId);
+            documentDao.createDocument(doc);
+        }
+    }//GEN-LAST:event_documentSaveBtnActionPerformed
+
+    private void createDocBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createDocBtnActionPerformed
+        // TODO add your handling code here:
+        this.nestedDocumentTabbedPane.setSelectedIndex(1);
+    }//GEN-LAST:event_createDocBtnActionPerformed
+
+    private void backDoJLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backDoJLabelMouseClicked
+        // TODO add your handling code here:
+        this.nestedDocumentTabbedPane.setSelectedIndex(0);
+    }//GEN-LAST:event_backDoJLabelMouseClicked
+    public void viewAlltheClients() {
+        Client client = new Client();
+        client.setTable(showClientJTable);
+        ClientDao clientDao = new ClientDao();
+        clientDao.showClient(client);
+    }
+
+    public void viewAllMyDocument(int user) {
+        Document doc = new Document();
+        String retrievedAdvocateId = String.valueOf(user);
+        doc.setAdvocateId(retrievedAdvocateId);
+        doc.setjTable(MyDocJTable);
+        DocumentDao documentDao = new DocumentDao();
+        documentDao.viewMyDocument(doc);
+
+    }
+    private void showClientBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showClientBtnActionPerformed
+        // TODO add your handling code here:
+        this.nestedDocumentTabbedPane.setSelectedIndex(2);
+        viewAlltheClients();
+
+    }//GEN-LAST:event_showClientBtnActionPerformed
+
+    private void backClientDocJLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backClientDocJLabelMouseClicked
+        // TODO add your handling code here:
+        this.nestedDocumentTabbedPane.setSelectedIndex(0);
+    }//GEN-LAST:event_backClientDocJLabelMouseClicked
+
+    private void viewAllDocBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewAllDocBtnActionPerformed
+        // TODO add your handling code here:
+        this.nestedDocumentTabbedPane.setSelectedIndex(3);
+        viewAllMyDocument(loggedInUser);
+
+    }//GEN-LAST:event_viewAllDocBtnActionPerformed
+
+    private void myDocBackJLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_myDocBackJLabelMouseClicked
+        // TODO add your handling code here:
+        this.nestedDocumentTabbedPane.setSelectedIndex(0);
+    }//GEN-LAST:event_myDocBackJLabelMouseClicked
+
+    private void editDocBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editDocBtnActionPerformed
+        // TODO add your handling code here:
+        this.nestedDocumentTabbedPane.setSelectedIndex(4);
+    }//GEN-LAST:event_editDocBtnActionPerformed
+
+    private void editDocJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editDocJComboBoxActionPerformed
+        // TODO add your handling code here:
+        if (editDocJComboBox.getSelectedIndex() == 0) {
+            this.nestedDocumentTabbedPane.setSelectedIndex(5);
+        } else if (editDocJComboBox.getSelectedIndex() == 1) {
+            this.nestedDocumentTabbedPane.setSelectedIndex(6);
+        }
+    }//GEN-LAST:event_editDocJComboBoxActionPerformed
+
+    private void saveDocTypeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveDocTypeBtnActionPerformed
+        // TODO add your handling code here:
+        String loggedUser = String.valueOf(loggedInUser);
+        int response = JOptionPane.showConfirmDialog(this, "Are you sure want to edit?", "Confirm", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (response == JOptionPane.YES_OPTION) {
+
+            Document doc = new Document();
+            String getDocId = enterDocIdTextField.getText();
+            String getDocType = editDocTypeTextField.getText();
+            if (getDocId.length() != 0 && getDocType.length() != 0) {
+                CheckExistingDocumentID(getDocId);
+                doc.setDocumentId(getDocId);
+                doc.setDocumentType(getDocType);
+                doc.setAdvocateId(loggedUser);
+                DocumentDao documentDao = new DocumentDao();
+                documentDao.modifyMyDocumentType(doc);
+                enterDocIdTextField.setText("");
+                editDocTypeTextField.setText("");
+            }
+        } else {
+            this.nestedDocumentTabbedPane.setSelectedIndex(5);
+        }
+
+
+    }//GEN-LAST:event_saveDocTypeBtnActionPerformed
+
+    private void viewMyDocJLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewMyDocJLabelMouseClicked
+        // TODO add your handling code here:
+        this.nestedDocumentTabbedPane.setSelectedIndex(3);
+        viewAllMyDocument(loggedInUser);
+    }//GEN-LAST:event_viewMyDocJLabelMouseClicked
+
+    private void backDocModifyJLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backDocModifyJLabelMouseClicked
+        // TODO add your handling code here:
+        this.nestedDocumentTabbedPane.setSelectedIndex(4);
+    }//GEN-LAST:event_backDocModifyJLabelMouseClicked
+
+    private void saveDocLocBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveDocLocBtnActionPerformed
+        // TODO add your handling code here:
+
+        String loggedAccount = String.valueOf(loggedInUser);
+        int response = JOptionPane.showConfirmDialog(this, "Are you sure want to edit?", "Confirm", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (response == JOptionPane.YES_OPTION) {
+
+            Document doc = new Document();
+            String getDocId = enterDocIDTextField.getText();
+            String getDocLoc = enterDocLocationTextField.getText();
+            if (getDocId.length() != 0 && getDocLoc.length() != 0) {
+                CheckExistingDocumentID(getDocId);
+                doc.setDocumentId(getDocId);
+                doc.setDocumentLocation(getDocLoc);
+                doc.setAdvocateId(loggedAccount);
+                DocumentDao documentDao = new DocumentDao();
+                documentDao.modifyMyDocumentType(doc);
+                enterDocIDTextField.setText("");
+                enterDocLocationTextField.setText("");
+            }
+        } else {
+            this.nestedDocumentTabbedPane.setSelectedIndex(5);
+        }
+
+    }//GEN-LAST:event_saveDocLocBtnActionPerformed
+
+    private void viewMyDOCJlabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewMyDOCJlabelMouseClicked
+        // TODO add your handling code here:
+        this.nestedDocumentTabbedPane.setSelectedIndex(3);
+        viewAllMyDocument(loggedInUser);
+    }//GEN-LAST:event_viewMyDOCJlabelMouseClicked
+
     /**
      * @param title
      * @param userID
@@ -3183,18 +3745,44 @@ public void viewMyRevenue(int user)
     public MainDashboard(String title, int userID) throws HeadlessException {
 
         super(title);
+        user_name.setText(title);
 
-        storedUserLabel.setText("Hello," + title);
-        //System.out.println(userID);
-        //   showId(userID);
         loggedInUser = userID;
         if (userID == 1001) {
             label_activity_menu.setText("Activity");
         } else {
             label_activity_menu.setText("");
         }
+
+        String getUserId = String.valueOf(loggedInUser);
+
+        task_.setLawyerId(getUserId);
+
+        Case case_ = new Case();
+
+        case_.setCaseWorker(getUserId);
+        CaseDao caseDao = new CaseDao();
+        String countOfTotalCases = caseDao.findTotalCases(case_);
+        totalcasehandlingNumJLabel.setText(countOfTotalCases);
+
+        Payment payment = new Payment();
+        
+        PaymentDao paymentDao = new PaymentDao();
+        String totalEarn = paymentDao.viewMyTotalEarning(payment, case_);
+        totalEarningjLabel.setText(totalEarn);
+        
+        
         //    System.out.println(title);
 
+    }
+
+    public void dashBoardShow() {
+
+        Task task_ = new Task();
+        //task_.setLawyerId(getUserId);
+        task_.setTable(taskJTable);
+        TaskDao taskDao = new TaskDao();
+        taskDao.showTasks(task_);
     }
 
     public static void main(String args[]) {
@@ -3227,8 +3815,9 @@ public void viewMyRevenue(int user)
         /* Create and display the form */
         MainDashboard phObject = new MainDashboard();
         phObject.setVisible(true);
-        //phObject.label_activity_menu.setVisible(false);
 
+        //  phObject.dashBoardShow();
+        //phObject.label_activity_menu.setVisible(false);
     }
 
 
@@ -3237,6 +3826,10 @@ public void viewMyRevenue(int user)
     private javax.swing.JPanel AddClientjPanel;
     private javax.swing.JPanel AddPaymentjPanel;
     private javax.swing.JLabel ClientBackjLabel;
+    private javax.swing.JLabel DocTypeJLabel;
+    private javax.swing.JLabel EditJLabel;
+    private javax.swing.JPanel ModifyMyDocJPanel;
+    private javax.swing.JTable MyDocJTable;
     private javax.swing.JRadioButton MyFolderRadioBtn;
     private javax.swing.JLabel NoteClientId;
     private javax.swing.JButton NoteSaveBtn;
@@ -3268,6 +3861,9 @@ public void viewMyRevenue(int user)
     private javax.swing.JLabel archiveCaseJLabel;
     private javax.swing.JTable archiveCasesJTable;
     private javax.swing.JRadioButton archivedFolderRadioBtn;
+    private javax.swing.JLabel backClientDocJLabel;
+    private javax.swing.JLabel backDoJLabel;
+    private javax.swing.JLabel backDocModifyJLabel;
     private javax.swing.JLabel backJlabel;
     private javax.swing.JLabel backPaymentjLabel;
     private javax.swing.JTextField caseLocTextField;
@@ -3281,9 +3877,12 @@ public void viewMyRevenue(int user)
     private javax.swing.JLabel clientFirstName;
     private javax.swing.JTextField clientIdNoteTextField;
     private javax.swing.JLabel clientIdjLabel;
+    private javax.swing.JLabel clientInfoJLabel;
     private javax.swing.JPanel clientJPanel;
     private javax.swing.JRadioButton clientRadioBtn;
     private javax.swing.JTextField clientTextField;
+    private javax.swing.JButton createDocBtn;
+    private javax.swing.JPanel createDocJPanel;
     private javax.swing.JTextField createdByTextField;
     private javax.swing.JLabel createdByjLabel;
     private com.toedter.calendar.JDateChooser createdTimeDateChooser;
@@ -3296,31 +3895,44 @@ public void viewMyRevenue(int user)
     private javax.swing.JTextField deadlineTextField;
     private javax.swing.JLabel detailJlabel;
     private javax.swing.JTextField detailTextField;
-    private javax.swing.JLabel documentLocJLabel;
+    private javax.swing.JLabel docLocationJLabel;
     private javax.swing.JTextField documentLocationTextField;
     private javax.swing.JButton documentSaveBtn;
     private javax.swing.JTextField documentTypeTextField;
-    private javax.swing.JLabel documentTypejLabel;
     private javax.swing.JTextField documentclientIdTextField;
+    private javax.swing.JButton editDocBtn;
+    private javax.swing.JComboBox<String> editDocJComboBox;
+    private javax.swing.JTextField editDocTypeTextField;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JTextField emailTextField;
     private javax.swing.JLabel enterCaseIdjLabel;
     private javax.swing.JLabel enterCategoryjLabel;
+    private javax.swing.JTextField enterDocIDTextField;
+    private javax.swing.JLabel enterDocIdJLabel;
+    private javax.swing.JTextField enterDocIdTextField;
+    private javax.swing.JLabel enterDocIdjLabel;
+    private javax.swing.JLabel enterDocLocJLabel;
+    private javax.swing.JTextField enterDocLocationTextField;
     private javax.swing.JTextField firstNameTextField;
     private javax.swing.JRadioButton folderCategoriesRadioBtn;
     private javax.swing.JRadioButton folderLocRadioBtn;
     private javax.swing.JPanel header_container;
+    private javax.swing.JPanel homeDocJPanel;
     private javax.swing.JTextField introTextField;
     private javax.swing.JLabel introjLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel21;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -3353,7 +3965,10 @@ public void viewMyRevenue(int user)
     private javax.swing.JPanel menu_container;
     private javax.swing.JLabel modifiedByJLabel;
     private javax.swing.JTextField modifiedbyTextField;
+    private javax.swing.JPanel modifyDocLocationJPanel;
+    private javax.swing.JPanel modifyDocTypeJPanel;
     private javax.swing.JLabel myCasesjLabel;
+    private javax.swing.JLabel myDocBackJLabel;
     private javax.swing.JLabel myFolderCategoryjLabel;
     private javax.swing.JPanel myFolderCategoryjPanel;
     private javax.swing.JLabel myFolderHomejLabel;
@@ -3366,6 +3981,7 @@ public void viewMyRevenue(int user)
     private javax.swing.JRadioButton myMaxRevenueRadioBtn;
     private javax.swing.JLabel myfolderLocjLabel;
     private javax.swing.JPanel nestedCaseMenuBar;
+    private javax.swing.JTabbedPane nestedDocumentTabbedPane;
     private javax.swing.JTabbedPane nestedTabbedCase;
     private javax.swing.JLabel noteJlabel;
     private javax.swing.JTextField noteTextField;
@@ -3381,6 +3997,8 @@ public void viewMyRevenue(int user)
     private javax.swing.JLabel phoneTextField;
     private javax.swing.JButton saveBtn;
     private javax.swing.JButton saveClientInfo;
+    private javax.swing.JButton saveDocLocBtn;
+    private javax.swing.JButton saveDocTypeBtn;
     private javax.swing.JButton savePaymentBtn;
     private javax.swing.JTextField searchBox_userName;
     private javax.swing.JTextField searchBox_userName1;
@@ -3388,11 +4006,14 @@ public void viewMyRevenue(int user)
     private javax.swing.JTextField searchBox_userName3;
     private javax.swing.JTextField searchBox_userName4;
     private javax.swing.JTextField searchBox_userName6;
+    private javax.swing.JButton showClientBtn;
+    private javax.swing.JPanel showClientJPanel;
+    private javax.swing.JTable showClientJTable;
     private javax.swing.JLabel software_name;
     private javax.swing.JTextField statusTextField;
     private javax.swing.JLabel statusjLabel;
     private static javax.swing.JLabel storedUserLabel;
-    private javax.swing.JPanel tab_Documents;
+    private static javax.swing.JPanel tab_Documents;
     private static javax.swing.JPanel tab_activity;
     private javax.swing.JPanel tab_appointment;
     private javax.swing.JPanel tab_caseFolder;
@@ -3405,6 +4026,7 @@ public void viewMyRevenue(int user)
     private com.toedter.calendar.JDateChooser taskCreatedTimeDateChooser;
     private javax.swing.JLabel taskDetailJLabel;
     private javax.swing.JTextField taskDetailTextField;
+    private javax.swing.JTable taskJTable;
     private javax.swing.JTextField taskLawyerIdTextField;
     private javax.swing.JLabel taskPriorityJLabel;
     private javax.swing.JTextField taskPriorityTextField;
@@ -3412,14 +4034,23 @@ public void viewMyRevenue(int user)
     private javax.swing.JLabel taskStatusJLabel;
     private javax.swing.JTextField taskStatusTextField;
     private javax.swing.JLabel title_searchBox_userName;
+    private static javax.swing.JLabel totalCaseHandlerJLabel;
+    private javax.swing.JLabel totalEarningJLabel;
+    static javax.swing.JLabel totalEarningjLabel;
+    private static javax.swing.JLabel totalcasehandlingNumJLabel;
     private com.toedter.calendar.JDateChooser updatedTimeDateChooser;
     private javax.swing.JTextField updatedTimeTextField;
     private javax.swing.JLabel updatedTimejLabel;
-    private javax.swing.JLabel user_name;
+    private static javax.swing.JLabel user_name;
+    private javax.swing.JButton viewAllDocBtn;
     private javax.swing.JLabel viewAllPaymentJLabel;
     private javax.swing.JPanel viewAllPaymentsJPanel;
     private javax.swing.JTable viewAllPaymentsJTable;
     private javax.swing.JRadioButton viewAllthePaymentsRadioBtn;
+    private javax.swing.JLabel viewMyDOCJlabel;
+    private javax.swing.JLabel viewMyDocJLabel;
+    private javax.swing.JPanel viewMyDocJPanel;
+    private javax.swing.JLabel viewMyTasksJLabel;
     private javax.swing.JPanel viewPaymentRadioButtonsJPanel;
     private javax.swing.JLabel viewPaymentsJLabel;
     private javax.swing.JPanel viewPendingCasesJPanel;

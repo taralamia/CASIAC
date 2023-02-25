@@ -5,6 +5,7 @@
 package model;
 
 import java.util.Date;
+import javax.swing.JTable;
 
 /**
  *
@@ -18,7 +19,16 @@ public class Task {
     private String TaskPriority;
     private String LawyerId;
     private String TaskStatus;
-      private String CreatedTime;
+     private String CreatedTime;
+     private JTable table;
+
+    public JTable getTable() {
+        return table;
+    }
+
+    public void setTable(JTable table) {
+        this.table = table;
+    }
 
     public Task() {
       

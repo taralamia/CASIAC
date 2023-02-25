@@ -16,4 +16,5 @@ public interface IPaymentDAO {
     void FindPaymentID(Payment payment);
     void viewAllMyPayments(Payment payment,Case case_);
     void viewAllMyPendingPayments(Payment payment,Case case_);
+    String viewMyTotalEarning(Payment payment,Case case_);
 }

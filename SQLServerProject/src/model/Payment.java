@@ -19,6 +19,15 @@ public class Payment {
     private String Status;
     private String Amount;
     private String Detail;
+    private String CaseId;
+
+    public String getCaseId() {
+        return CaseId;
+    }
+
+    public void setCaseId(String CaseId) {
+        this.CaseId = CaseId;
+    }
     private JTable jtable;
 
     public JTable getJtable() {

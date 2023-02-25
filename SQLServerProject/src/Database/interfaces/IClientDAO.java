@@ -14,4 +14,5 @@ public interface IClientDAO {
     void createClient (Client client);
     void FindClient(Client client);
     int FindClientID(Client client);
+    void showClient(Client client);
 }
